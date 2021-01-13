@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Convey" Version="0.4.354" />
+    <PackageReference Include="Convey.Auth" Version="0.4.354" />
+    <PackageReference Include="Convey.Secrets.Vault" Version="0.4.354" />
+    <PackageReference Include="Convey.Discovery.Consul" Version="0.4.354" />
+    <PackageReference Include="Convey.LoadBalancing.Fabio" Version="0.4.354" />
+    <PackageReference Include="Convey.HTTP" Version="0.4.354" />
+    <PackageReference Include="Convey.Logging" Version="0.4.354" />
+    <PackageReference Include="Convey.MessageBrokers" Version="0.4.354" />
+    <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.354" />
+    <PackageReference Include="Convey.MessageBrokers.Outbox" Version="0.4.354" />
+    <PackageReference Include="Convey.MessageBrokers.Outbox.Mongo" Version="0.4.354" />
+    <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="0.4.354" />
+    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.354" />
+    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.354" />
+    <PackageReference Include="Convey.Security" Version="0.4.354" />
+    <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.354" />
+    <PackageReference Include="Convey.Tracing.Jaeger.RabbitMQ" Version="0.4.354" />
+    <PackageReference Include="Convey.WebApi.CQRS" Version="0.4.354" />
+    <PackageReference Include="Convey.WebApi.Swagger" Version="0.4.354" />
+    <PackageReference Include="Google.Protobuf" Version="3.11.4" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.28.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.28.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Redis" Version="1.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Operations.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Spirebyte.Services.Operations.Application\Spirebyte.Services.Operations.Application.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,34 @@
+﻿{
+  "projects-service": {
+    "exchange": "projects",
+    "commands": [
+      "create_project",
+      "join_project",
+      "leave_project",
+      "update_project"
+    ],
+    "events": [
+      "project_created",
+      "project_updated",
+      "project_joined",
+      "project_left",
+      "user_invited_to_project"
+    ],
+    "rejectedEvents": [
+      "project_created_rejected"
+    ]
+  },
+  "issue-service": {
+    "exchange": "issues",
+    "commands": [
+      "create_issue",
+      "update_issue"
+    ],
+    "events": [
+      "issue_created",
+      "issue_updated"
+    ],
+    "rejectedEvents": [
+    ]
+  }
+}

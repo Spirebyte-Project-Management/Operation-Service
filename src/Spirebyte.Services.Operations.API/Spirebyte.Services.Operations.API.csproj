@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>42a1577c-f987-40cb-a86f-b405f8011969</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Convey" Version="0.4.354" />
+    <PackageReference Include="Convey.Logging" Version="0.4.354" />
+    <PackageReference Include="Convey.WebApi" Version="0.4.354" />
+    <PackageReference Include="Convey.WebApi.CQRS" Version="0.4.354" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Spirebyte.Services.Operations.Infrastructure\Spirebyte.Services.Operations.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>
