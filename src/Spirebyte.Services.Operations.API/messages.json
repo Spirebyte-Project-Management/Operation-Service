@@ -30,5 +30,18 @@
     ],
     "rejectedEvents": [
     ]
+  },
+  "sprint-service": {
+    "exchange": "sprints",
+    "commands": [
+      "create_sprint"
+    ],
+    "events": [
+      "sprint_created",
+      "started_sprint",
+      "ended_sprint"
+    ],
+    "rejectedEvents": [
+    ]
   }
 }
