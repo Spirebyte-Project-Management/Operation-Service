@@ -27,5 +27,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUBPACKAGES }}
           registry: docker.pkg.github.com
-          repository: Spirebyte-Project-Management/Operation-Service/Operation-Service
+          repository: spirebyte-project-management/operation-service/operation-service
           tag_with_ref: true
