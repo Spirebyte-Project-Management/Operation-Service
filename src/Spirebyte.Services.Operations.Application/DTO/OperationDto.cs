@@ -1,5 +1,4 @@
-﻿using System;
-using Spirebyte.Services.Operations.Core.Types;
+﻿using Spirebyte.Services.Operations.Core.Types;
 
 namespace Spirebyte.Services.Operations.Application.DTO
 {

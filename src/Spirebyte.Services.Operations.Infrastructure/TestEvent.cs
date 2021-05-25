@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Convey.CQRS.Events;
+﻿using Convey.CQRS.Events;
 using Spirebyte.Services.Operations.Application.Types.Interfaces;
+using System;
 
 namespace Spirebyte.Services.Operations.Infrastructure
 {
