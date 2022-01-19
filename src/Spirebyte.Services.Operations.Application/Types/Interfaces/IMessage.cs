@@ -1,6 +1,5 @@
-﻿namespace Spirebyte.Services.Operations.Application.Types.Interfaces
+﻿namespace Spirebyte.Services.Operations.Application.Types.Interfaces;
+
+public interface IMessage
 {
-    public interface IMessage
-    {
-    }
 }

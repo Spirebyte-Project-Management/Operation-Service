@@ -1,7 +1,6 @@
-﻿namespace Spirebyte.Services.Operations.Infrastructure.Configuration
+﻿namespace Spirebyte.Services.Operations.Infrastructure.Configuration;
+
+public class RequestsOptions
 {
-    public class RequestsOptions
-    {
-        public int ExpirySeconds { get; set; }
-    }
+    public int ExpirySeconds { get; set; }
 }

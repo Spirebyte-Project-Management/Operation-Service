@@ -1,7 +1,6 @@
-﻿namespace Spirebyte.Services.Operations.Infrastructure.Configuration
+﻿namespace Spirebyte.Services.Operations.Infrastructure.Configuration;
+
+public class SignalrOptions
 {
-    public class SignalrOptions
-    {
-        public string Backplane { get; set; }
-    }
+    public string Backplane { get; set; }
 }

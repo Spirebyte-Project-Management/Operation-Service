@@ -1,15 +1,14 @@
-﻿using Spirebyte.Services.Operations.Application.DTO;
-using System;
+﻿using System;
+using Spirebyte.Services.Operations.Application.DTO;
 
-namespace Spirebyte.Services.Operations.Application.Services.Args
+namespace Spirebyte.Services.Operations.Application.Services.Args;
+
+public class OperationUpdatedEventArgs : EventArgs
 {
-    public class OperationUpdatedEventArgs : EventArgs
+    public OperationUpdatedEventArgs(OperationDto operation)
     {
-        public OperationDto Operation { get; }
-
-        public OperationUpdatedEventArgs(OperationDto operation)
-        {
-            Operation = operation;
-        }
+        Operation = operation;
     }
+
+    public OperationDto Operation { get; }
 }

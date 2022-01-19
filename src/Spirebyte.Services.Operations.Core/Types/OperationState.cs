@@ -1,9 +1,8 @@
-﻿namespace Spirebyte.Services.Operations.Core.Types
+﻿namespace Spirebyte.Services.Operations.Core.Types;
+
+public enum OperationState
 {
-    public enum OperationState
-    {
-        Pending,
-        Completed,
-        Rejected
-    }
+    Pending,
+    Completed,
+    Rejected
 }

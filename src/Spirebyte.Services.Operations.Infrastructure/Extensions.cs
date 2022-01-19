@@ -1,4 +1,5 @@
-﻿using Convey;
+﻿using System;
+using Convey;
 using Convey.Auth;
 using Convey.CQRS.Commands;
 using Convey.CQRS.Events;
@@ -25,88 +26,91 @@ using Spirebyte.Services.Operations.Infrastructure.Contexts;
 using Spirebyte.Services.Operations.Infrastructure.Exceptions;
 using Spirebyte.Services.Operations.Infrastructure.Handlers;
 using Spirebyte.Services.Operations.Infrastructure.Services;
-using System;
 
-namespace Spirebyte.Services.Operations.Infrastructure
+namespace Spirebyte.Services.Operations.Infrastructure;
+
+public static class Extensions
 {
-    public static class Extensions
+    public static string ToUserGroup(this Guid userId)
     {
-        public static string ToUserGroup(this Guid userId) => userId.ToString("N").ToUserGroup();
-        public static string ToUserGroup(this string userId) => $"users:{userId}";
-        public static string ToProjectGroup(this string projectId) => $"project:{projectId}";
+        return userId.ToString("N").ToUserGroup();
+    }
 
-        public static CorrelationContext GetCorrelationContext(this ICorrelationContextAccessor accessor)
-        {
-            if (accessor.CorrelationContext is null)
-            {
-                return null;
-            }
+    public static string ToUserGroup(this string userId)
+    {
+        return $"users:{userId}";
+    }
 
-            var payload = JsonConvert.SerializeObject(accessor.CorrelationContext);
+    public static string ToProjectGroup(this string projectId)
+    {
+        return $"project:{projectId}";
+    }
 
-            return string.IsNullOrWhiteSpace(payload)
-                ? null
-                : JsonConvert.DeserializeObject<CorrelationContext>(payload);
-        }
+    public static CorrelationContext GetCorrelationContext(this ICorrelationContextAccessor accessor)
+    {
+        if (accessor.CorrelationContext is null) return null;
 
-        public static IConveyBuilder AddInfrastructure(this IConveyBuilder builder)
-        {
-            var requestsOptions = builder.GetOptions<RequestsOptions>("requests");
-            builder.Services.AddSingleton(requestsOptions);
-            builder.Services.AddTransient<ICommandHandler<ICommand>, GenericCommandHandler<ICommand>>()
-                .AddTransient<IEventHandler<ITestEvent>, GenericEventHandler<ITestEvent>>()
-                .AddTransient<IEventHandler<IRejectedEvent>, GenericRejectedEventHandler<IRejectedEvent>>()
-                .AddTransient<IHubService, HubService>()
-                .AddTransient<IHubWrapper, HubWrapper>()
-                .AddSingleton<IOperationsService, OperationsService>();
-            builder.Services.AddGrpc();
+        var payload = JsonConvert.SerializeObject(accessor.CorrelationContext);
 
-            return builder
-                .AddErrorHandler<ExceptionToResponseMapper>()
-                .AddJwt()
-                .AddCommandHandlers()
-                .AddEventHandlers()
-                .AddQueryHandlers()
-                .AddHttpClient()
-                .AddConsul()
-                .AddFabio()
-                .AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin())
-                .AddMongo()
-                .AddRedis()
-                .AddJaeger()
-                .AddRedis()
-                .AddSignalR()
-                .AddWebApiSwaggerDocs()
-                .AddSecurity();
-        }
+        return string.IsNullOrWhiteSpace(payload)
+            ? null
+            : JsonConvert.DeserializeObject<CorrelationContext>(payload);
+    }
 
-        public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
-        {
-            app.UseErrorHandler()
-                .UseSwaggerDocs()
-                .UseJaeger()
-                .UseConvey()
-                .UseStaticFiles()
-                .UseRabbitMq()
-                .SubscribeMessages();
+    public static IConveyBuilder AddInfrastructure(this IConveyBuilder builder)
+    {
+        var requestsOptions = builder.GetOptions<RequestsOptions>("requests");
+        builder.Services.AddSingleton(requestsOptions);
+        builder.Services.AddTransient<ICommandHandler<ICommand>, GenericCommandHandler<ICommand>>()
+            .AddTransient<IEventHandler<ITestEvent>, GenericEventHandler<ITestEvent>>()
+            .AddTransient<IEventHandler<IRejectedEvent>, GenericRejectedEventHandler<IRejectedEvent>>()
+            .AddTransient<IHubService, HubService>()
+            .AddTransient<IHubWrapper, HubWrapper>()
+            .AddSingleton<IOperationsService, OperationsService>();
+        builder.Services.AddGrpc();
 
-            return app;
-        }
+        return builder
+            .AddErrorHandler<ExceptionToResponseMapper>()
+            .AddJwt()
+            .AddCommandHandlers()
+            .AddEventHandlers()
+            .AddQueryHandlers()
+            .AddHttpClient()
+            .AddConsul()
+            .AddFabio()
+            .AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin())
+            .AddMongo()
+            .AddRedis()
+            .AddJaeger()
+            .AddRedis()
+            .AddSignalR()
+            .AddWebApiSwaggerDocs()
+            .AddSecurity();
+    }
 
-        private static IConveyBuilder AddSignalR(this IConveyBuilder builder)
-        {
-            var options = builder.GetOptions<SignalrOptions>("signalR");
-            builder.Services.AddSingleton(options);
-            var signalR = builder.Services.AddSignalR();
-            if (!options.Backplane.Equals("redis", StringComparison.InvariantCultureIgnoreCase))
-            {
-                return builder;
-            }
+    public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
+    {
+        app.UseErrorHandler()
+            .UseSwaggerDocs()
+            .UseJaeger()
+            .UseConvey()
+            .UseStaticFiles()
+            .UseRabbitMq()
+            .SubscribeMessages();
 
-            var redisOptions = builder.GetOptions<RedisOptions>("redis");
-            signalR.AddRedis(redisOptions.ConnectionString);
+        return app;
+    }
 
-            return builder;
-        }
+    private static IConveyBuilder AddSignalR(this IConveyBuilder builder)
+    {
+        var options = builder.GetOptions<SignalrOptions>("signalR");
+        builder.Services.AddSingleton(options);
+        var signalR = builder.Services.AddSignalR();
+        if (!options.Backplane.Equals("redis", StringComparison.InvariantCultureIgnoreCase)) return builder;
+
+        var redisOptions = builder.GetOptions<RedisOptions>("redis");
+        signalR.AddRedis(redisOptions.ConnectionString);
+
+        return builder;
     }
 }

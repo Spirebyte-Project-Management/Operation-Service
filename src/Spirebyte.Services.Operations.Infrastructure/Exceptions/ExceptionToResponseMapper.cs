@@ -1,16 +1,17 @@
-﻿using Convey.WebApi.Exceptions;
-using System;
+﻿using System;
 using System.Net;
+using Convey.WebApi.Exceptions;
 
-namespace Spirebyte.Services.Operations.Infrastructure.Exceptions
+namespace Spirebyte.Services.Operations.Infrastructure.Exceptions;
+
+internal sealed class ExceptionToResponseMapper : IExceptionToResponseMapper
 {
-    internal sealed class ExceptionToResponseMapper : IExceptionToResponseMapper
+    public ExceptionResponse Map(Exception exception)
     {
-        public ExceptionResponse Map(Exception exception)
-            => exception switch
-            {
-                _ => new ExceptionResponse(new { code = "error", reason = "There was an error." },
-                    HttpStatusCode.BadRequest)
-            };
+        return exception switch
+        {
+            _ => new ExceptionResponse(new { code = "error", reason = "There was an error." },
+                HttpStatusCode.BadRequest)
+        };
     }
 }
