@@ -6,10 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Convey" Version="0.4.354"/>
-        <PackageReference Include="Convey.CQRS.Events" Version="0.4.354"/>
-        <PackageReference Include="Convey.CQRS.Commands" Version="0.4.354"/>
-        <PackageReference Include="Convey.CQRS.Queries" Version="0.4.354"/>
+        <PackageReference Include="Convey" Version="1.0.531"/>
+        <PackageReference Include="Convey.CQRS.Events" Version="1.0.531"/>
+        <PackageReference Include="Convey.CQRS.Commands" Version="1.0.531"/>
+        <PackageReference Include="Convey.CQRS.Queries" Version="1.0.531"/>
     </ItemGroup>
 
     <ItemGroup>

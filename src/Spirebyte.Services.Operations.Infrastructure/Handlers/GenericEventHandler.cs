@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Convey.CQRS.Events;
 using Convey.MessageBrokers;
@@ -24,7 +25,7 @@ public class GenericEventHandler<T> : IEventHandler<T> where T : class, IEvent, 
         _hubService = hubService;
     }
 
-    public async Task HandleAsync(T @event)
+    public async Task HandleAsync(T @event, CancellationToken cancellationToken = default)
     {
         var messageProperties = _messagePropertiesAccessor.MessageProperties;
         var correlationId = messageProperties?.CorrelationId;

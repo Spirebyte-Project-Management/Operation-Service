@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Convey.CQRS.Commands;
 using Convey.MessageBrokers;
@@ -24,7 +25,7 @@ public class GenericCommandHandler<T> : ICommandHandler<T> where T : class, ICom
         _hubService = hubService;
     }
 
-    public async Task HandleAsync(T command)
+    public async Task HandleAsync(T command, CancellationToken cancellationToken = default)
     {
         var messageProperties = _messagePropertiesAccessor.MessageProperties;
         var correlationId = messageProperties?.CorrelationId;

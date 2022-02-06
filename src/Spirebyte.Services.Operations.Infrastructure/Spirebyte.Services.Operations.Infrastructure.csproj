@@ -6,28 +6,31 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Convey" Version="0.4.354"/>
-        <PackageReference Include="Convey.Auth" Version="0.4.354"/>
-        <PackageReference Include="Convey.Secrets.Vault" Version="0.4.354"/>
-        <PackageReference Include="Convey.Discovery.Consul" Version="0.4.354"/>
-        <PackageReference Include="Convey.LoadBalancing.Fabio" Version="0.4.354"/>
-        <PackageReference Include="Convey.HTTP" Version="0.4.354"/>
-        <PackageReference Include="Convey.Logging" Version="0.4.354"/>
-        <PackageReference Include="Convey.MessageBrokers" Version="0.4.354"/>
-        <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.354"/>
-        <PackageReference Include="Convey.MessageBrokers.Outbox" Version="0.4.354"/>
-        <PackageReference Include="Convey.MessageBrokers.Outbox.Mongo" Version="0.4.354"/>
-        <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="0.4.354"/>
-        <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.354"/>
-        <PackageReference Include="Convey.Persistence.Redis" Version="0.4.354"/>
-        <PackageReference Include="Convey.Security" Version="0.4.354"/>
-        <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.354"/>
-        <PackageReference Include="Convey.Tracing.Jaeger.RabbitMQ" Version="0.4.354"/>
-        <PackageReference Include="Convey.WebApi.CQRS" Version="0.4.354"/>
-        <PackageReference Include="Convey.WebApi.Swagger" Version="0.4.354"/>
-        <PackageReference Include="Google.Protobuf" Version="3.11.4"/>
-        <PackageReference Include="Grpc.AspNetCore" Version="2.28.0"/>
-        <PackageReference Include="Grpc.Tools" Version="2.28.1"/>
+        <PackageReference Include="Convey" Version="1.0.531"/>
+        <PackageReference Include="Convey.Auth" Version="1.0.531"/>
+        <PackageReference Include="Convey.Secrets.Vault" Version="1.0.531"/>
+        <PackageReference Include="Convey.Discovery.Consul" Version="1.0.531"/>
+        <PackageReference Include="Convey.LoadBalancing.Fabio" Version="1.0.531"/>
+        <PackageReference Include="Convey.HTTP" Version="1.0.531"/>
+        <PackageReference Include="Convey.Logging" Version="1.0.531"/>
+        <PackageReference Include="Convey.MessageBrokers" Version="1.0.531"/>
+        <PackageReference Include="Convey.MessageBrokers.CQRS" Version="1.0.531"/>
+        <PackageReference Include="Convey.MessageBrokers.Outbox" Version="1.0.531"/>
+        <PackageReference Include="Convey.MessageBrokers.Outbox.Mongo" Version="1.0.531"/>
+        <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="1.0.531"/>
+        <PackageReference Include="Convey.Persistence.MongoDB" Version="1.0.531"/>
+        <PackageReference Include="Convey.Persistence.Redis" Version="1.0.531"/>
+        <PackageReference Include="Convey.Security" Version="1.0.531"/>
+        <PackageReference Include="Convey.Tracing.Jaeger" Version="1.0.531"/>
+        <PackageReference Include="Convey.Tracing.Jaeger.RabbitMQ" Version="1.0.531"/>
+        <PackageReference Include="Convey.WebApi.CQRS" Version="1.0.531"/>
+        <PackageReference Include="Convey.WebApi.Swagger" Version="1.0.531"/>
+        <PackageReference Include="Google.Protobuf" Version="3.19.3"/>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.42.0"/>
+        <PackageReference Include="Grpc.Tools" Version="2.43.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0"/>
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Redis" Version="1.1.5"/>
     </ItemGroup>
