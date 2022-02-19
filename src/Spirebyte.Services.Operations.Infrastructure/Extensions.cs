@@ -22,10 +22,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Spirebyte.Services.Operations.Application.Services.Interfaces;
 using Spirebyte.Services.Operations.Infrastructure.Configuration;
-using Spirebyte.Services.Operations.Infrastructure.Contexts;
 using Spirebyte.Services.Operations.Infrastructure.Exceptions;
 using Spirebyte.Services.Operations.Infrastructure.Handlers;
 using Spirebyte.Services.Operations.Infrastructure.Services;
+using Spirebyte.Shared.Contexts;
 
 namespace Spirebyte.Services.Operations.Infrastructure;
 
