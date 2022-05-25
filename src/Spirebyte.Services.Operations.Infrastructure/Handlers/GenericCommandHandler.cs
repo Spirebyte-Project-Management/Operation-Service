@@ -5,7 +5,6 @@ using Convey.CQRS.Commands;
 using Convey.MessageBrokers;
 using Spirebyte.Services.Operations.Application.Services.Interfaces;
 using Spirebyte.Services.Operations.Core.Types;
-using Spirebyte.Shared.Contexts;
 
 namespace Spirebyte.Services.Operations.Infrastructure.Handlers;
 
