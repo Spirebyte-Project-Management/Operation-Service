@@ -6,15 +6,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Convey" Version="1.0.531"/>
-        <PackageReference Include="Convey.CQRS.Events" Version="1.0.531"/>
-        <PackageReference Include="Convey.CQRS.Commands" Version="1.0.531"/>
-        <PackageReference Include="Convey.CQRS.Queries" Version="1.0.531"/>
-        <PackageReference Include="Spirebyte.Shared" Version="1.0.12"/>
+        <PackageReference Include="Convey" Version="1.0.531" />
+        <PackageReference Include="Convey.CQRS.Events" Version="1.0.531" />
+        <PackageReference Include="Convey.CQRS.Commands" Version="1.0.531" />
+        <PackageReference Include="Convey.CQRS.Queries" Version="1.0.531" />
+        <PackageReference Include="Spirebyte.Shared" Version="1.0.14" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Spirebyte.Services.Operations.Core\Spirebyte.Services.Operations.Core.csproj"/>
+        <ProjectReference Include="..\Spirebyte.Services.Operations.Core\Spirebyte.Services.Operations.Core.csproj" />
     </ItemGroup>
 
 </Project>
